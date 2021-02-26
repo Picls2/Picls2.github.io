@@ -193,7 +193,35 @@
                 position: relative;
                 right: 70px;
             }
-
+            #creditsScreen{
+                background-color: black;
+                color: #f5d742;
+                position: absolute;
+                left: -9999px;
+                padding: 200px;
+                font-family: Copperplate, fantasy;
+                width: 1000px;
+                height: 500px;
+            }
+            #closeCredits{
+                background-color: transparent; 
+                border-width: 2px; 
+                font-size: 20px; 
+                border-radius: 20px;
+                border-color: black;
+                position: relative;
+                left: 1000px;
+                bottom: 120px;
+            }
+            .endButton{
+                background-color: #f5d742;
+                font-size: 40px;
+                border-radius: 20px;
+            }
+            #keepPlaying{
+                position: relative;
+                left: 450px;
+            }
             @-webkit-keyframes hue {
             from {
                 -webkit-filter: hue-rotate(0deg);
@@ -244,12 +272,33 @@
                     <li> The "Shiny Mouse" button gives you a loading mouse because the CSS was being dumb and wouldn't let me import a custom mouse D:</li>
             </p>  
 	
-	<h2> When You Reach 2000 gold a "Win Game" button will appear</h2>
+	<h2> When You Reach 2000 gold a "Win Game" button will appear, click it to reach the end game screen!</h2>
         </div>
         
         <div id="gameWin">
             <h2 id="gameWinHeader">You Have Win Clicker!</h2>
             <p id="gameWinText">Great Victory and Pride!!!</p>
+            <button id="credits" class="endButton">Credits</button>
+            <button id="keepPlaying"  class="endButton">Keep Playing!</button>
+        </div>
+        
+        <div id="creditsScreen">
+            <button id="closeCredits" style="color: white">X</button>
+            <h2 id="gameWinHeader" style="position: relative; bottom: 200px; font-size: 50px">Credits</h2>
+            <p id="gameWinText" style="position: relative; bottom: 200px;  font-size: 50px">
+                Project Lead: Picls2
+                <br/>
+                Lead Programmer: Picls2
+                <br/>
+                Level Design: Picls2
+                <br/>
+                QA: Picls2
+                <br/>
+                Community Managment: Picls2
+                <br/>
+                <br/>
+                A special thanks to Picls2 for being such a big part of this project!
+            </p>
         </div>
         
         <script>
@@ -346,6 +395,20 @@
             document.getElementById('gameWin').style.left = "0px";
             document.getElementById('gameWin').style.bottom = "0px";
             }
+            
+            credits.onclick = function(){
+            document.getElementById('creditsScreen').style.position = "absolute";
+            document.getElementById('creditsScreen').style.left = "0px";
+            document.getElementById('creditsScreen').style.bottom = "0px";
+            }
+                            closeCredits.onclick = function(){
+            document.getElementById('creditsScreen').style.position = "absolute";
+            document.getElementById('creditsScreen').style.left = "-9999px";
+        }
+            keepPlaying.onclick = function(){
+            document.getElementById('gameWin').style.position = "absolute";
+            document.getElementById('gameWin').style.left = "-9999px";
+        }
         </script>
     </body>
 </html>
