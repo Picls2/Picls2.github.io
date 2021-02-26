@@ -1,0 +1,348 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <style>
+            button{
+                border-width: 0px; 
+                cursor: pointer;
+            }
+            button:focus {
+                outline: none;
+                box-shadow: none;
+                border-width: 0px;
+            }
+            body{
+                background-color: #2f302f;
+                overflow: hidden;
+            }
+            #clickArea{
+                background-color: #416682;
+                width: 900px;
+                height: 600px;
+                position: absolute;
+                top: 150px;
+                left: 275px;
+                border-radius: 50px;
+                color: white;
+                font-family: Copperplate, fantasy;
+                font-size: 50px;
+            }
+            #bank{
+                padding: 50px 275px;
+                color: #f5d742;
+                font-size: 30px;
+                font-family: Copperplate, fantasy;
+                border-width: 0px;
+            }
+            #upgrade{
+                background-color: #f5d742;
+                border-width: 0px;
+                position: absolute;
+                right: 140px;
+                bottom: 765px;
+                width: 200px;
+                height: 25px;
+                border-radius: 10px;
+                opacity: 0.0;
+            }
+            #shop{
+                height: 140px;
+                background-color: #654321;
+                width: 215px;
+                position: relative;
+                left: 25px;
+                border-radius: 15px;
+
+            }
+            #shopBanner{
+                font-size: 30px;
+                color: white;
+                padding: 50px 75px;
+                font-family: Copperplate, fantasy;
+               
+            }
+            #doubleCoins{
+                position: relative;
+                top: 5px;
+            }
+            #doubleCoinsText{
+                position: relative;
+                bottom: 28px;
+                left: 140px;
+            }
+            #threeMore{
+                position: relative;
+                bottom: 55px;
+            }
+            #threeMoreText{
+                position: relative;
+                bottom: 87px;
+                left: 140px;
+            }
+            #newMouse{
+                position: relative;
+                bottom: 115px;
+            }
+            #newMouseText{
+                position: relative;
+                bottom: 147px;
+                left: 140px;
+            }
+            #help{
+                position: relative;
+                bottom: 75px;
+                left: 110px;
+                border-width: 0px;
+                background-color: transparent;
+                width: 25px;
+            }
+            #helpScreen{
+                background-color: #f0fdff;
+                width: 50%;
+                padding: 20px;
+                border-color: rgba(240, 253, 255, 0.7);
+                border-width: 25px;
+                position: absolute;
+                right: -9999px;
+                font-family: Copperplate, fantasy;
+            }
+            #helpScreenBody{
+                font-size: 20px;
+            }
+            #helpScreenHead{
+                font-size: 30px;
+            }
+            #closeHelp{
+                background-color: transparent; 
+                border-width: 2px; 
+                font-size: 20px; 
+                border-radius: 20px;
+                border-color: black;
+                position: relative;
+                left: 600px;
+                bottom: 65px;
+            }
+            #helpBlur{
+                background-color: #787878;
+                opacity: 0.8;
+                width: 2000px;
+                height: 1000px;
+                position: absolute;
+                left: -9999px;
+            }
+            #gameWin{
+                background-color: black;
+                color: #f5d742;
+                position: absolute;
+                left: -9999px;
+                padding: 200px;
+                font-family: Copperplate, fantasy;
+                width: 1000px;
+                height: 500px;
+            }
+            #gameWinHeader{
+	            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	            font-size: 100px;
+	            font-weight:  100;
+	            letter-spacing: 2px;
+	            text-align: center;
+	            color: #f35626;
+	            background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+	            -webkit-background-clip: text;
+	            -webkit-text-fill-color: transparent;
+	            -webkit-animation: hue 2s infinite linear;
+                position: relative;
+                right: 70px;
+            }
+            #winButton{
+                font-size: 40px;
+                background: -webkit-linear-gradient(45deg, #0032c9, #00ffb7);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                position: absolute;
+                left: -9999px;
+            }
+            .shopButton{
+                position: relative;
+                left: 5px;
+                background-color: #7a4296;
+                border-radius: 3px;
+            }
+            #clickArea:hover{
+                background-color: #477ea8;
+                
+            }
+            #upgrade:hover{
+                background-color: #ffe76e;
+            }
+            .shopButton:hover{
+                background-color: #9a55bd;
+            }
+            #gameWinText{
+	            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	            font-size: 6rem;
+	            font-weight:  100;
+	            letter-spacing: 2px;
+	            text-align: center;
+	            color: #f35626;
+	            background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+	            -webkit-background-clip: text;
+	            -webkit-text-fill-color: transparent;
+	            -webkit-animation: hue 2s infinite linear;
+                position: relative;
+                right: 70px;
+            }
+
+            @-webkit-keyframes hue {
+            from {
+                -webkit-filter: hue-rotate(0deg);
+                }
+            to {
+                 -webkit-filter: hue-rotate(-360deg);
+                }
+                }
+        </style>
+    </head>
+    <body>
+        <div id="bank"></div>
+        <button id="clickArea">Click Here!</button>
+        <button id="upgrade">Upgrade: +1 per click</button>
+        <button id="help"><img src="https://image.flaticon.com/icons/png/512/61/61671.png" style="width: 50px; height: auto;"></img></button>
+        <div id="shop">
+        <span id="shopBanner">Shop</span>
+        <br/>
+        <!--Shop Buttons-->
+        <button id="doubleCoins" class="shopButton">Pointless</button><p id="doubleCoinsText">400 Coins</p>
+        <br/>
+        <button id="threeMore" class="shopButton">+3 Per Click!</button><p id="threeMoreText">300 Coins</p>
+        <br/>
+        <button id="newMouse" class="shopButton">Shiny Mouse!</button><p id="newMouseText">1000 Coins</p>
+        </div>
+        
+        <button id="winButton">Win Game!</button>
+        
+        <div id="helpBlur"></div>
+        
+        <div id="helpScreen">
+            <h2 id="helpScreenHead">Gameplay</h2>
+            <button id="closeHelp">X</button>
+            <p id="helpScreenBody">
+                <ol id="helpScreenBody">
+                    <li>Click in the large blue square to earn money, you will earn 1 gold per click</li>
+                    <li>Once you have 25 coins the Upgrade button will appear, click it and you will use 25 gold, but will earn one extra gold per click.</li>
+                    <li>Each time you buy an upgrade the cost of the next one will double.</li>
+                </ol>
+            </p>
+            <h2 id="helpScreenHead">The Shop</h2>
+            <p id="helpScreenBody">
+                The Shop is where you can buy upgrades to help you earn more money, or change the appearance of your screen. 
+                
+                <ol id="helpScreenBody">
+                    <li> The "Pointless" button does nothing because i'm to lazy to think of something to put there.</li>
+                    <li> The "+3" button increases he amount you earn by 3 per click, which i guess makes the upgrade button useless...</li>
+                    <li> The "Shiny Mouse" button gives you a loading mouse because the CSS was being dumb and wouldn't let me import a custom mouse D:</li>
+            </p>            
+        </div>
+        
+        <div id="gameWin">
+            <h2 id="gameWinHeader">You Have Win Clicker!</h2>
+            <p id="gameWinText">Great Victory and Pride!!!</p>
+        </div>
+        
+        <script>
+          var bankAmount = 0;
+          var upgradeAmount = 0;
+          var upgradeRequire = 25;
+          document.getElementById('bank').innerHTML = "Bank: " + "$" + bankAmount;
+          
+          upgrade.onclick = function(){
+        if(bankAmount >= upgradeRequire){
+              upgradeAmount++;
+              bankAmount = bankAmount - upgradeRequire;
+              upgradeRequire *= 2;
+        }
+              if(bankAmount < upgradeRequire){
+              document.getElementById('upgrade').style.opacity = "0.0";
+              }
+              document.getElementById('bank').innerHTML = "Bank: " + "$" + bankAmount;
+          }
+          
+          clickArea.onclick = function(){
+              bankAmount += upgradeAmount + 1;
+              document.getElementById('bank').innerHTML = "Bank: " + "$" + bankAmount;
+              
+              if(bankAmount >= upgradeRequire){
+                  document.getElementById('upgrade').style.opacity = "1.0";
+              }
+              
+              if(bankAmount >= 2000){
+            document.getElementById('winButton').style.position = "absolute";
+            document.getElementById('winButton').style.top = "48px";
+            document.getElementById('winButton').style.left = "550px";
+                }
+          }
+        </script>
+        <script>
+            
+            function hideWinButton(){
+                if(bankAmount < 2000){
+                document.getElementById('winButton').style.position = "absolute";
+                document.getElementById('winButton').style.left = "-9999px";
+                }
+            }
+            
+            threeMore.onclick = function(){
+                if(bankAmount >= 300){
+                    upgradeAmount += 3;
+                    bankAmount -= 300;
+                    document.getElementById('bank').innerHTML = "Bank: " + "$" + bankAmount;
+                }
+                if(bankAmount <= upgradeRequire){
+                    document.getElementById('upgrade').style.opacity = "0.0";
+                }
+                
+                hideWinButton();
+            }
+            
+            newMouse.onclick = function(){
+                if(bankAmount >= 1000){
+                    bankAmount -= 1000;
+                document.getElementById('clickArea').style.cursor = "wait";
+                document.getElementById('bank').innerHTML = "Bank: " + "$" + bankAmount;
+                }
+                
+                if(document.getElementById('clickArea').style.cursor = "wait" && bankAmount >= 1000){
+                    bankAmount += 1000;
+                }
+                
+                hideWinButton();
+            }
+        </script>
+        <script> 
+        //Help Button
+        
+        help.onclick = function(){
+            document.getElementById('helpScreen').style.position = "absolute";
+            document.getElementById('helpScreen').style.left = "300px";
+            document.getElementById('helpScreen').style.bottom = "200px";
+            document.getElementById('helpBlur').style.position = "absolute";
+            document.getElementById('helpBlur').style.left = "0px";
+            document.getElementById('helpBlur').style.bottom = "0px";
+        }
+        
+                closeHelp.onclick = function(){
+            document.getElementById('helpScreen').style.position = "absolute";
+            document.getElementById('helpScreen').style.left = "-9999px";
+            document.getElementById('helpBlur').style.position = "absolute";
+            document.getElementById('helpBlur').style.left = "-9999px";
+        }
+        </script>
+        <script>
+            winButton.onclick = function(){
+            document.getElementById('gameWin').style.position = "absolute";
+            document.getElementById('gameWin').style.left = "0px";
+            document.getElementById('gameWin').style.bottom = "0px";
+            }
+        </script>
+    </body>
+</html>
